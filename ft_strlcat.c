@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
+/*   By: null <null@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 21:48:39 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/19 18:06:10 by null             ###   ########.fr       */
+/*   Created: 2019/09/19 17:31:23 by null              #+#    #+#             */
+/*   Updated: 2019/09/19 17:57:39 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void ft_bzero(void *point, size_t num)
+size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned char *ptr;
-
-	ptr = (unsigned char *) point;
-	while (num-- > 0)
-		*(ptr++) = 0;
+	dst	 = (char *) malloc(sizeof(char) * size);
+	size = size - 1;
+	while (size-- > 0)
+	{
+		*(dst++) = *(src++);
+	}
+	*(dst++) = '\0';
+	return (ft_strlen(*src) + ft_strlen(*dst));
 }

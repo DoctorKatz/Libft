@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 21:48:39 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/19 18:06:10 by null             ###   ########.fr       */
+/*   Created: 2019/09/19 09:31:59 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/19 18:04:13 by null             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <stdlib.h>
 
-void ft_bzero(void *point, size_t num)
+int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char *ptr;
-
-	ptr = (unsigned char *) point;
-	while (num-- > 0)
-		*(ptr++) = 0;
 }
