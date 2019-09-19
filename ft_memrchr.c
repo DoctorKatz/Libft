@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:15:06 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:15:06 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:17:54 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/20 00:17:54 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 #include <stdlib.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void *ft_memchr(const void *s, int c, size_t n)
 {
-	dst = (char *) malloc(sizeof(char) * size);
-	size = size - 1;
-	while (size-- > 0)
+	s += n;
+	while (n-- > 0)
 	{
-		*(dst++) = *(src++);
+		if (*(int *) s == c)
+			return (void *) s;
+		s--;
 	}
-	*(dst++) = '\0';
-	return (ft_strlen(*src) + ft_strlen(*dst));
+	return (NULL);
 }

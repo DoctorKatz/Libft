@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:15:06 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:15:06 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:21:39 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/20 00:22:51 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "stdlib.h"
 
-#include <stdlib.h>
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char *strncat(char *dest, const char *src, size_t n)
 {
-	dst = (char *) malloc(sizeof(char) * size);
-	size = size - 1;
-	while (size-- > 0)
+	int count_x;
+	int count_y;
+
+	count_x = 0;
+	count_y = 0;
+	while (dest[count_x])
+		count_x++;
+	while (src[count_y] || n-- > 0)
 	{
-		*(dst++) = *(src++);
+		dest[count_x + count_y] = src[count_y];
+		count_y++;
+		n--;
 	}
-	*(dst++) = '\0';
-	return (ft_strlen(*src) + ft_strlen(*dst));
+	dest[count_x + count_y] = '\0';
+	return (dest);
 }

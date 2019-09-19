@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:15:06 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:15:06 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/19 23:48:45 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/19 23:53:10 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-#include <stdlib.h>
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int		toupper(int c)
 {
-	dst = (char *) malloc(sizeof(char) * size);
-	size = size - 1;
-	while (size-- > 0)
-	{
-		*(dst++) = *(src++);
-	}
-	*(dst++) = '\0';
-	return (ft_strlen(*src) + ft_strlen(*dst));
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
 }
+

@@ -12,15 +12,15 @@
 
 #include <stdlib.h>
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    void *temp;
+	void *temp;
 
-    temp = dest;
-    dest = (unsigned char *)malloc(n * sizeof(n));
-    while(n-- > 0)
-    {
-        *((unsigned char *)dest++) = *((unsigned char *) src++);
-    }
-    return (temp);
+	temp = dest;
+	dest = (unsigned char *) malloc(n * sizeof(n));
+	while (n-- > 0)
+	{
+		*((unsigned char *) dest++) = *((unsigned char *) src++);
+	}
+	return (temp);
 }

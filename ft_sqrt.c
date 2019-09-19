@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:15:06 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:15:06 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:06:23 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/20 00:06:26 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-#include <stdlib.h>
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int		ft_sqrt(int nb)
 {
-	dst = (char *) malloc(sizeof(char) * size);
-	size = size - 1;
-	while (size-- > 0)
+	int buff;
+	int div;
+
+	buff = nb;
+	div = nb;
+	if (nb <= 0)
+		return (0);
+	while (1)
 	{
-		*(dst++) = *(src++);
+		div = (nb / div + div) / 2;
+		if (buff > div)
+			buff = div;
+		else
+		{
+			if ((buff * buff) == nb)
+				return (buff);
+			else
+				return (0);
+		}
 	}
-	*(dst++) = '\0';
-	return (ft_strlen(*src) + ft_strlen(*dst));
 }
+

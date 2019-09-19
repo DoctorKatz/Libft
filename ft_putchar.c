@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:15:06 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:15:06 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:01:39 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/20 00:01:39 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-#include <stdlib.h>
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_putchar(char c)
 {
-	dst = (char *) malloc(sizeof(char) * size);
-	size = size - 1;
-	while (size-- > 0)
-	{
-		*(dst++) = *(src++);
-	}
-	*(dst++) = '\0';
-	return (ft_strlen(*src) + ft_strlen(*dst));
+	write(1, &c, 1);
 }

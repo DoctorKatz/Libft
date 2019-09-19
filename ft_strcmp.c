@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:15:06 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:15:06 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/19 23:01:53 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/19 23:01:56 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-#include <stdlib.h>
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int		ft_strcmp(char *s1, char *s2)
 {
-	dst = (char *) malloc(sizeof(char) * size);
-	size = size - 1;
-	while (size-- > 0)
+	int count_str;
+
+	count_str = 0;
+	while ((s1[count_str] == s2[count_str]) \
+			&& (s1[count_str + 1] != '0') && (s2[count_str + 1]) != '\0')
+		count_str++;
+	if (s1[count_str] != s2[count_str])
 	{
-		*(dst++) = *(src++);
+		return (s1[count_str] - s2[count_str]);
 	}
-	*(dst++) = '\0';
-	return (ft_strlen(*src) + ft_strlen(*dst));
+	else
+		return (0);
 }
+

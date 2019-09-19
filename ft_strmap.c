@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:15:06 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:15:06 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/19 23:59:47 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/19 23:59:51 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 #include <stdlib.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int		*ft_map(int *tab, int length, int (*f)(int))
 {
-	dst = (char *) malloc(sizeof(char) * size);
-	size = size - 1;
-	while (size-- > 0)
+	int *mass;
+	int count;
+
+	count = 0;
+	mass = (int*)malloc(sizeof(int) * length);
+	while (length--)
 	{
-		*(dst++) = *(src++);
+		mass[count] = f(*tab++);
+		count++;
 	}
-	*(dst++) = '\0';
-	return (ft_strlen(*src) + ft_strlen(*dst));
+	return (mass);
 }

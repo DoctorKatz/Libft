@@ -12,19 +12,18 @@
 
 #include <stdlib.h>
 
-void *ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-    void *temp;
+	void *temp;
 
-    temp = dest;
-    dest = (int *)malloc(n * sizeof(int));
-    while(n-- > 0)
-    {
-//    	TODO: работает ли это сравнение? Или через dest[i]?
-        if (*((int *)dest) == c)
-            return dest++;
-        *((int *)dest++) = *((int *) src++);
-    }
-    return (NULL);
+	temp = dest;
+	dest = (int *) malloc(n * sizeof(int));
+	while (n-- > 0)
+	{
+		//    	TODO: работает ли это сравнение? Или через dest[i]?
+		if (*((int *) dest) == c)
+			return dest++;
+		*((int *) dest++) = *((int *) src++);
+	}
+	return (NULL);
 }
-
