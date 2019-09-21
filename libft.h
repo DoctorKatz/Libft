@@ -6,7 +6,7 @@
 /*   By: stross <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 21:22:10 by stross            #+#    #+#             */
-/*   Updated: 2019/09/19 18:57:46 by stross           ###   ########.fr       */
+/*   Updated: 2019/09/21 03:30:03 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # define FALSE 0
 # define ISSP(X) (X == ' ' || X == '\n' || X == '\t')
 
-# include "get_next_line.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -63,6 +62,7 @@ void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void				*ft_memchr(const void *str, int c, size_t n);
 void				ft_bzero(void *str, size_t n);
+int					ft_count_word(const char *str, char c);
 void				ft_memdel(void **ap);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);

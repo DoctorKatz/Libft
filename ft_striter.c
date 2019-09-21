@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:02:32 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:02:32 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 00:56:05 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/21 01:00:08 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-void	ft_putstr(const char *str)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	while (str)
-		ft_putchar(*str);
+	if (s == NULL || f == NULL)
+		return ;
+	while (s != NULL && *s)
+	{
+		f(s++);
+	}
 }

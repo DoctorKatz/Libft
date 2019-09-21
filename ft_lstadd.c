@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:02:32 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:02:32 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 04:31:40 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/21 04:38:18 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(const char *str)
+void ft_lstadd(t_list **alst, t_list *new)
 {
-	while (str)
-		ft_putchar(*str);
+	t_list *head;
+
+	head = *alst;
+	*alst = new;
+	new->next = head;
 }
+

@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:02:32 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:02:32 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 01:32:05 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/21 01:34:12 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putstr(const char *str)
+int ft_strequ(char const *s1, char const *s2)
 {
-	while (str)
-		ft_putchar(*str);
+	while (s1 || s2)
+	{
+		if (*s1++ == *s2++)
+			return (1);
+	}
+	return (0);
 }

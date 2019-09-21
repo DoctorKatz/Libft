@@ -6,28 +6,29 @@
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 00:38:22 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:42:03 by lgunship         ###   ########.fr       */
+/*   Updated: 2019/09/20 21:23:37 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*strnstr(const char	*str, const char *to_find, size_t len)
+char *strnstr(const char *haystack, const char *needle, size_t len)
 {
 	int count_str;
 	int count_find;
 
 	count_str = 0;
-	while (str[count_str] != '\0')
+	while (haystack[count_str] != '\0' || (len > 0))
 	{
 		count_find = 0;
-		while (to_find[count_find] == str[count_str + count_find])
+		while ((needle[count_find] == haystack[count_str + count_find]))
 		{
-			if (to_find[count_find + 1] == '\0')
-				return (str + count_str);
+			if (needle[count_find + 1] == '\0')
+				return ((char *)haystack + count_str);
 			count_find++;
 		}
 		count_str++;
+		len--;
 	}
 	return (NULL);
 }

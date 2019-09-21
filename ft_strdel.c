@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:02:32 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:02:32 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 00:51:36 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/21 00:51:58 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-void	ft_putstr(const char *str)
+void ft_strdel(char **as)
 {
-	while (str)
-		ft_putchar(*str);
+	if (as && *as)
+	{
+		free(*as);
+		*as = NULL;
+	}
 }

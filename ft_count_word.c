@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_count_word.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 00:02:32 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/20 00:02:32 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 03:22:41 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/21 03:22:41 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putstr(const char *str)
+int		ft_count_word(const char *str, char c)
 {
+	int words_quantity;
+
+	if (!str)
+		return (0);
+	words_quantity = 0;
 	while (str)
-		ft_putchar(*str);
+	{
+		if (*str == c && *str != c)
+			words_quantity++;
+		str++;
+	}
+	return (words_quantity);
 }

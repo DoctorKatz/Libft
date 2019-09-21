@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/19 23:59:47 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/21 01:27:47 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 02:09:30 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/21 02:21:42 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char * ft_strtrim(char const *s)
 {
-	int		i;
-	char	*ptrdest;
+	char *copy;
+	int length;
 
-	if (s == NULL || f == NULL)
+	if (!s)
 		return (NULL);
-	ptrdest = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (ptrdest == NULL)
+	length = ft_strlen(s);
+	copy = (char *)malloc(sizeof(char) * (length + 1));
+	if (!copy)
 		return (NULL);
-	while (s[i++])
-	{
-		ptrdest[i] = f(s[i]);
-	}
-	ptrdest[i + 1] = '\0';
-	return (ptrdest);
+	if ((s[0] == ' ' || s[0] == '\n' || s[0] == '\t'))
+		s += 1;
+	if ((s[length] == ' ' || s[length] == '\n' || s[length] == '\t'))
+		length -= 1;
+	while (length-- > 0)
+		*(copy++) = *(s++);
+	*(copy + 1) = '\0';
+	return (copy);
 }
