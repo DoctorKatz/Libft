@@ -10,21 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strcat(const char *dest, const char *src)
 {
 	int count_x;
 	int count_y;
+	char *pchar;
 
 	count_x = 0;
 	count_y = 0;
-	while (dest[count_x])
+	pchar = (char *)dest;
+	while (pchar[count_x])
 		count_x++;
 	while (src[count_y])
 	{
-		dest[count_x + count_y] = src[count_y];
+		pchar[count_x + count_y] = src[count_y];
 		count_y++;
 	}
-	dest[count_x + count_y] = '\0';
-	return (dest);
+	pchar[count_x + count_y] = '\0';
+	return (pchar);
 }
 

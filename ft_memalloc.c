@@ -20,10 +20,12 @@ void	*ft_memalloc(size_t size)
 	if(!size)
 		return (NULL);
 	ptr = (void *)malloc(sizeof(void) * size);
-	if (!ptr)
+	if (ptr)
 	{
 		ft_bzero(ptr, size);
 		return (ptr);
 	}
+	else
+		return (NULL);
 }
 

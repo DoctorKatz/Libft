@@ -6,14 +6,14 @@
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 22:36:20 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/19 22:40:20 by lgunship         ###   ########.fr       */
+/*   Updated: 2019/09/23 23:17:37 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 int		ft_strlen(const char *str);
-char	*ft_strcpy(char *dest, const char *src);
+char	*ft_strcpy(const char *dest, const char *src);
 
 char	*ft_strdup(char *src)
 {
@@ -24,7 +24,7 @@ char	*ft_strdup(char *src)
 	return (temp);
 }
 
-int		ft_strlen(char *str)
+int		ft_strlen(const char *str)
 {
 	int count;
 
@@ -34,18 +34,20 @@ int		ft_strlen(char *str)
 	return (count);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(const char *dest, const char *src)
 {
 	int count_src;
+	char *temp;
 
 	count_src = 0;
+	temp = (char *)dest;
 	while (src[count_src])
 	{
-		dest[count_src] = src[count_src];
+		temp[count_src] = src[count_src];
 		count_src++;
 	}
-	dest[count_src] = '\0';
-	return (dest);
+	temp[count_src] = '\0';
+	return (temp);
 }
 
 

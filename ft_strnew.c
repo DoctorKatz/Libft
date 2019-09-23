@@ -20,11 +20,12 @@ char * ft_strnew(size_t size)
 	if(!size)
 		return (NULL);
 	ptr = (char *)malloc(sizeof(char) * size);
-	if (!ptr)
+	if (ptr)
 	{
 		ft_bzero(ptr, size);
 		*(ptr + 1) = '\0';
 		return (ptr);
 	}
+	return (NULL);
 }
 
