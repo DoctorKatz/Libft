@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/19 23:17:25 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/19 23:30:22 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void *ft_memchr(const void *s, int c, size_t n)
+int		ft_isalnum(int c)
 {
-
-	while (n-- > 0)
-	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
-	}
-	return (NULL);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || \
+		(c >= '0' && c <= '9'))
+		return (1);
+	else
+		return (0);
 }

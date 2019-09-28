@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 04:47:28 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/27 21:25:30 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
+	t_list		*new;
+	t_list		*header;
 
-	while (n-- > 0)
+	if (!lst)
+		return (NULL);
+	header = f(lst);
+	new = header;
+	while (lst->next)
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		lst = lst->next;
+		if (!(header->next = f(lst)))
+		{
+			free(header->next);
+			return (NULL);
+		}
+		header = header->next;
 	}
-	return (NULL);
+	return (new);
 }

@@ -67,11 +67,11 @@ int		count_word(char *str)
 
 int		ln_word(char *str, int count)
 {
-	while (str[count] != '\t' && str[count] != ' '\
+while (str[count] != '\t' && str[count] != ' '\
 			&& str[count] != '\n' && str[count])
-	{
-		count++;
-	}
-	return (count);
+{
+count++;
+}
+return (count);
 }
 

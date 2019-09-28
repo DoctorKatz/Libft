@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isprime.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:07:28 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/20 00:07:31 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+int		ft_isprime(int nb)
 {
+	int count;
 
-	while (n-- > 0)
+	count = 2;
+	while (count <= ft_sqrt(nb))
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		if ((nb % count) == 0)
+			return (0);
+		count++;
 	}
-	return (NULL);
+	return (1);
 }

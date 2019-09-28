@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:21:39 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/28 03:37:00 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
+	size_t	count;
+	int		len;
 
-	while (n-- > 0)
+	count = 0;
+	len = ft_strlen(dest);
+	while (src[count] && count < n)
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		dest[count + len] = src[count];
+		count++;
 	}
-	return (NULL);
+	dest[len + count] = '\0';
+	return (dest);
 }

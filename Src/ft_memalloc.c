@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 23:37:31 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/27 21:23:22 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memalloc(size_t size)
 {
+	void *ptr;
 
-	while (n-- > 0)
+	if (!size)
+		return (NULL);
+	ptr = (void *)malloc(sizeof(void) * size);
+	if (ptr)
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		ft_bzero(ptr, size);
+		return (ptr);
 	}
-	return (NULL);
+	else
+		return (NULL);
 }

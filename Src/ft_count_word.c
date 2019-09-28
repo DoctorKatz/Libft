@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_count_word.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 03:22:41 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/21 03:22:41 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void *ft_memchr(const void *s, int c, size_t n)
+int		ft_count_word(const char *str, char c)
 {
+	int words_quantity;
 
-	while (n-- > 0)
+	if (!str)
+		return (0);
+	words_quantity = 0;
+	while (str)
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		if (*str == c && *str != c)
+			words_quantity++;
+		str++;
 	}
-	return (NULL);
+	return (words_quantity);
 }

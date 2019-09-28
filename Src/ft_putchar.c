@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:01:39 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/28 07:30:05 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	ft_putchar(char c)
 {
-
-	while (n-- > 0)
-	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
-	}
-	return (NULL);
+	ft_putchar_fd(c, 1);
 }

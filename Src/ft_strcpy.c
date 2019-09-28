@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/19 22:42:19 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/19 22:49:08 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void *ft_memchr(const void *s, int c, size_t n)
+char	*ft_strcpy(char *dest, const char *src)
 {
+	int count_src;
 
-	while (n-- > 0)
+	count_src = 0;
+	while (*src && src[count_src])
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		dest[count_src] = src[count_src];
+		count_src++;
 	}
-	return (NULL);
+	dest[count_src] = '\0';
+	return (dest);
 }

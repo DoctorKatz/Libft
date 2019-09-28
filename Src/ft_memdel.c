@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 00:19:18 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/27 21:23:22 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	ft_memdel(void **ap)
 {
-
-	while (n-- > 0)
+	if (ap && *ap)
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		free(*ap);
+		*ap = NULL;
 	}
-	return (NULL);
 }

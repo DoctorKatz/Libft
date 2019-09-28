@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:06:23 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/20 00:06:26 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void *ft_memchr(const void *s, int c, size_t n)
+int		ft_sqrt(int nb)
 {
+	int buff;
+	int div;
 
-	while (n-- > 0)
+	buff = nb;
+	div = nb;
+	if (nb <= 0)
+		return (0);
+	while (1)
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		div = (nb / div + div) / 2;
+		if (buff > div)
+			buff = div;
+		else
+		{
+			if ((buff * buff) == nb)
+				return (buff);
+			else
+				return (0);
+		}
 	}
-	return (NULL);
 }

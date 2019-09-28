@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/19 23:59:47 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/28 06:08:46 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
-void *ft_memchr(const void *s, int c, size_t n)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
+	int		i;
+	char	*ptrdest;
 
-	while (n-- > 0)
+	i = 0;
+	if (s == NULL || f == NULL)
+		return (NULL);
+	if ((ptrdest = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))) == NULL)
+		return (NULL);
+	while (s[i])
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		ptrdest[i] = f(s[i]);
+		i++;
 	}
-	return (NULL);
+	ptrdest[i] = '\0';
+	return (ptrdest);
 }

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/21 01:44:36 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/28 07:51:04 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
+	char			*str;
+	char			*str_sub;
+	unsigned int	count;
 
-	while (n-- > 0)
+	if (!(str_sub = ft_strnew(len)) || !s)
+		return (NULL);
+	str = (char *)s;
+	count = 0;
+	while (count < len)
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		str_sub[count] = str[start];
+		start++;
+		count++;
 	}
-	return (NULL);
+	return (str_sub);
 }

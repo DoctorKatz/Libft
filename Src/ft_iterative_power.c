@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:09:14 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/20 00:09:15 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void *ft_memchr(const void *s, int c, size_t n)
+int		ft_iterative_power(int nb, int power)
 {
+	int count;
+	int temp;
 
-	while (n-- > 0)
+	if (power <= 0)
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		return (0);
 	}
-	return (NULL);
+	temp = nb;
+	count = 1;
+	while (count <= power - 1)
+	{
+		temp = nb * temp;
+		count++;
+	}
+	return (temp);
 }

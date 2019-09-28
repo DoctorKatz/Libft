@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgunship <lgunship@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 23:55:02 by lgunship          #+#    #+#             */
-/*   Updated: 2019/09/18 23:55:02 by lgunship         ###   ########.fr       */
+/*   Created: 2019/09/20 00:38:22 by lgunship          #+#    #+#             */
+/*   Updated: 2019/09/28 05:07:56 by lgunship         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
+	size_t len;
 
-	while (n-- > 0)
+	len = 0;
+	if (*needle == '\0')
+		return ((char *)haystack);
+	len = ft_strlen(needle);
+	while (*haystack && len <= n--)
 	{
-		s++;
-		if (*(int *) s == c)
-			return (void *) s;
+		if (!ft_strncmp(haystack, needle, len))
+			return ((char *)haystack);
+		haystack++;
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 #    By: lgunship <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/23 21:49:45 by lgunship          #+#    #+#              #
-#    Updated: 2019/09/28 00:54:15 by lgunship         ###   ########.fr        #
+#    Updated: 2019/09/28 00:56:51 by lgunship         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,8 +65,8 @@ SRC = 	ft_strlen.c \
 			ft_putstr.c \
 			ft_putendl.c \
 			ft_putnbr.c \
-			ft_putstr_fd.c \
 			ft_putchar_fd.c \
+			ft_putstr_fd.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
 			ft_lstnew.c \
@@ -75,14 +75,13 @@ SRC = 	ft_strlen.c \
 			ft_lstadd.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
-			ft_split_whitespace.c \
 			ft_sqrt.c \
 			ft_count_word.c \
 			ft_swap.c \
 			ft_isprime.c \
 			ft_iterative_power.c
 
-OBJ = $(SRC:%.c=%.o)
+OBJ = $(patsubst %.c,%.o,$(SRC))
 
 all: $(NAME)
 
