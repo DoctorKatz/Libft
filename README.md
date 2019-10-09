@@ -7,3 +7,5 @@ char *ft_strjoin(*s1, *s2) - возвращает указатель на скл
 char	*ft_strsub(char const *s, unsigned int start, size_t len) - выделяет подстроку в строке s с ячейки start длинной len и возвращает на нее указатель;
 
 char *strdup(const char *str) - дублирует строку str в новую и возвращает на нее указатель;
+
+void	ft_strdel(char * *as) - фришит строку
